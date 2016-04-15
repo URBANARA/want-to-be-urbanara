@@ -1,6 +1,7 @@
 # Cash Machine
 
 [Command line](#command-line)
+
 [API](#api)
 
 ## <a name="comand-line"></a> Command Line
@@ -46,7 +47,7 @@ You can request the withdraw from our API and receive a JSON response
 
 ### Starting application
 
-    php -S localhost:8080 -t ./public/
+    php -S localhost:8080 -t ./cash-machine/public/
 
 ### Performing a request
 
@@ -56,7 +57,7 @@ Tell the value to withdraw using the route:
 
 E.g:
 
-  curl http://localhost:8080/api/v1/withdraw/380
+    curl http://localhost:8080/api/v1/withdraw/380
 
 Response:
 
