@@ -1,10 +1,20 @@
 # Cash Machine
 
+[Browser](#browser)
+
 [Command line](#command-line)
 
 [API](#api)
 
 [Tests](#tests)
+
+## <a name="browser"></a> Browser
+
+To run a complete web interface, execute:
+
+    php -S localhost:8080 -t ./cash-machine/public/
+
+Open the url `http://localhost:8080` in your browser.
 
 ## <a name="command-line"></a> Command Line
 
