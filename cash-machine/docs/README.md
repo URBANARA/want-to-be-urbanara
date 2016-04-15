@@ -4,7 +4,7 @@
 
 [API](#api)
 
-## <a name="comand-line"></a> Command Line
+## <a name="command-line"></a> Command Line
 
 To run the apllication from command line, execute:
 
