@@ -103,3 +103,9 @@ To run tests:
     cd cash-machine
     vendor/bin/phpunit
 
+
+## Deploy Heroku
+
+To deploy application
+
+    git subtree push --prefix cash-machine heroku master
