@@ -19,7 +19,7 @@ class WithdrawController
         $withdrawService = $di->get('WithdrawService');
 
         try {
-              $results = $withdrawService->calculateDeliver($value, $config->availableNotes);
+              $results = $withdrawService->calculateDelivery($value, $config->availableNotes);
               return $response->withJson([
                 'notes' => $results
                 ]);

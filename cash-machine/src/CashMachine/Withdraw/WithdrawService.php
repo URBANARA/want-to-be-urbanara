@@ -8,19 +8,19 @@ use InvalidArgumentException;
 
 class WithdrawService
 {
-    public function calculateDeliver(float $value = null, array $notesAvailable = []): array
+    public function calculateDelivery(float $value = null, array $notesAvailable = []): array
     {
 
         if ($value < 0) {
-            throw new InvalidArgumentException('Value must be greather than 0');
+            throw new InvalidArgumentException('Value must be greater than 0');
         }
         sort($notesAvailable);
-        $greateOrder = array_reverse($notesAvailable);
+        $greatOrder = array_reverse($notesAvailable);
 
         $remainder = $value;
         $result = [];
 
-        foreach ($greateOrder as $note) {
+        foreach ($greatOrder as $note) {
             if ($remainder < $note) {
                 continue;
             }

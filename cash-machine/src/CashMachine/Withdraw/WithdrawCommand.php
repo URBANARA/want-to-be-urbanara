@@ -45,7 +45,7 @@ class WithdrawCommand extends Command
         $config = $di->get('WithdrawConfig');
         $withdrawService = $di->get('WithdrawService');
 
-        $results = $withdrawService->calculateDeliver((float) $value, $config->availableNotes);
+        $results = $withdrawService->calculateDelivery((float) $value, $config->availableNotes);
 
         if ($displayAmount) {
             $output->writeln('<info>Amount:</> <comment>' . number_format($value, 2) . '</>');

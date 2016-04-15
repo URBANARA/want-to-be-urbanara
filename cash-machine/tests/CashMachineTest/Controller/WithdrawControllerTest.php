@@ -65,7 +65,7 @@ class WithdrawControllerTest extends PHPUnit_Framework_TestCase
         $response = new Response;
         $response = $route->__invoke($request, $response);
         $this->assertEquals($response->getStatusCode(), 500);
-        $this->assertEquals((string) $response->getBody(), '{"error":"Value must be greather than 0"}');
+        $this->assertEquals((string) $response->getBody(), '{"error":"Value must be greater than 0"}');
 
         $request = $request->withAttribute('value', null);
         $response = new Response;

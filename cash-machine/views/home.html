@@ -16,7 +16,7 @@
       <div class="container" ng-controller="HomeController as home">
         <div class="jumbotron" ng-cloak>
           <h1>Cash Machine</h1>
-          <form ng-submit="home.calculateDeliver()" no-validate autocomplete="off">
+          <form ng-submit="home.calculateDelivery()" no-validate autocomplete="off">
           <div class="form-group">
             <label for="amount">Amount</label>
             <input id="amount" ng-model="home.amount" class="form-control input-lg" placeholder="Amount to withdraw" />
@@ -34,9 +34,6 @@
             <span class="sr-only">Loading...</span>
           </div>
           <div ng-if="home.notes">
-            <div class="alert alert-success">
-              Take your money
-            </div>
             <div class="well">
               <div ng-repeat="(note, quant) in home.notes">
                 <i class="fa fa-money" aria-hidden="true"></i>
