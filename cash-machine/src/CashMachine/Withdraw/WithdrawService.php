@@ -8,9 +8,10 @@ use InvalidArgumentException;
 
 class WithdrawService
 {
-    public function calculateDeliver(float $value, array $notesAvailable): array
+    public function calculateDeliver(float $value = null, array $notesAvailable = []): array
     {
-        if ($value <= 0) {
+
+        if ($value < 0) {
             throw new InvalidArgumentException('Value must be greather than 0');
         }
         sort($notesAvailable);

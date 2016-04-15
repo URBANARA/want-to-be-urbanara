@@ -4,6 +4,8 @@
 
 [API](#api)
 
+[Tests](#tests)
+
 ## <a name="command-line"></a> Command Line
 
 To run the apllication from command line, execute:
@@ -82,3 +84,12 @@ Response:
         "error": "Note unavailable: 5",
         "unvailableNote": 5
     }
+
+
+## <a name="tests"></a> Tests
+
+To run tests:
+
+    cd cash-machine
+    vendor/bin/phpunit
+

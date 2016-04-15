@@ -1,0 +1,15 @@
+sudo: false
+
+language: php
+
+php:
+  - 7
+
+before_install:
+  - composer self-update
+  - composer install --no-interaction --ignore-platform-reqs --prefer-source --dev
+
+script:
+  - cd cash-machine
+  - ./vendor/bin/phpcs --standard=PSR2 src tests console.php
+  - ./vendor/bin/phpunit

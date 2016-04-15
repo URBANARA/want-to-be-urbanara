@@ -9,7 +9,13 @@
             "CashMachine\\": "src/CashMachine"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "CashMachineTest\\": "tests/CashMachineTest"
+        }
+    },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^2.6"
+        "squizlabs/php_codesniffer": "^2.6",
+        "phpunit/phpunit": "^5.3"
     }
 }
