@@ -1,5 +1,7 @@
 <?php
 
+chdir(dirname(__FILE__));
+
 require 'vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
