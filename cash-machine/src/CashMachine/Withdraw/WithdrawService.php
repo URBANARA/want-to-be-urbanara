@@ -11,7 +11,7 @@ class WithdrawService
     public function calculateDeliver(float $value, array $notesAvailable): array
     {
         if ($value <= 0) {
-            throw new InvalidArgumentException('Value must be greather then 0');
+            throw new InvalidArgumentException('Value must be greather than 0');
         }
         sort($notesAvailable);
         $greateOrder = array_reverse($notesAvailable);
@@ -20,10 +20,10 @@ class WithdrawService
         $result = [];
 
         foreach ($greateOrder as $note) {
-            $result[$note] = 0;
             if ($remainder < $note) {
                 continue;
             }
+            $result[$note] = 0;
             while ($remainder >= $note) {
                 $result[$note]++;
                 $remainder -= $note;
