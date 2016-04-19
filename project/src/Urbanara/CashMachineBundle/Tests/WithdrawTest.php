@@ -16,10 +16,10 @@ class WithdrawTest extends WebTestCase
 		$this->assertEquals([20], $cashmachine->checkNotes(20));
 		$this->assertEquals([10], $cashmachine->checkNotes(10));
 
-		// All bills
+		// All notes
 		$this->assertEquals([100, 50, 20, 10], $cashmachine->checkNotes(180));
 
-		// More of the same bill
+		// More of the same note
 		$this->assertEquals([100, 100, 20, 20], $cashmachine->checkNotes(240));
 	}
 
