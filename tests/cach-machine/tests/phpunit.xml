@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<phpunit
+    colors="true"
+    bootstrap="./bootstrap.php">
+ 
+    <testsuites>
+        <testsuite name="CashMachine tests">
+            <directory>src/CashMachine</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

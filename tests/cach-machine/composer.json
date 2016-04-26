@@ -1,0 +1,19 @@
+{
+    "name": "vendor/cashmachine",
+    "description": "Cash Machine.",
+    "authors": [
+        {
+            "name": "Felipe Girotti",
+            "email": "felipe.girotti@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "4.8.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Urbanara\\" : "src", 
+            "UrbanaraTest\\" : "tests"
+        }
+    }
+}
