@@ -9,7 +9,11 @@ class atm {
       $this->notes = array(100, 50, 20, 10);
     }
 
-    public function withdrawal($value = ""){
+    public function withdrawal($value){
+      if($value % 2 != 0){
+        return;
+      }
+      
       if($value > 0){
         for ($i= 0; $i < sizeof($this->notes); $i++) {
           if($value >= $this->notes[$i]){
