@@ -1,0 +1,25 @@
+{
+  "name": "test_task/tesst_package",
+  "description": "a solution that simulate the delivery of notes when a client does a withdraw in a cash machine",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "author's name",
+      "email": "email@example.com"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "~4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ATM\\": "src/"
+    },
+    "autoload-dev": {
+      "psr-4": {
+        "ATM\\Tests\\": "tests/"
+      }
+    }
+  }
+}
