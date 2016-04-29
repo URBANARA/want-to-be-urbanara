@@ -8,7 +8,6 @@
 
 namespace Urbanara\CashMachine;
 
-
 interface BanknotesInterface
 {
     /**

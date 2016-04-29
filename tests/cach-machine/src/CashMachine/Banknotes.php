@@ -2,7 +2,6 @@
 
 namespace Urbanara\CashMachine;
 
-
 class Banknotes implements BanknotesInterface
 {
 
