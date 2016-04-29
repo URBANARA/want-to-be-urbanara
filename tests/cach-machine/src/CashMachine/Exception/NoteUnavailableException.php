@@ -1,8 +1,8 @@
 <?php
 
-namespace Urbanara\CashMachine;
+namespace Urbanara\CashMachine\Exception;
 
 class NoteUnavailableException extends \Exception
 {
-	
+    
 }
