@@ -18,6 +18,7 @@ In order to better understand your working mindset we would like you to present 
 
 Choose **two** of this pages bellow and redesign it considering not only the points you presented in the benchmaking but also your own opinions of how it should look like, that means you can add or remove content ( not need to be the same as it is online )
 
+> Choose only TWO:
 - Home
 - Search Results
 - Product Details
@@ -29,6 +30,7 @@ Choose **two** of this pages bellow and redesign it considering not only the poi
 
 Create an naviable prototype of our purchase workflow (try to use wireframes and focus on UX) presenting your proposal ideas for the flow, make sure you dont forget a step however if you choose to remove any steps just present an explanation of why:
 
+> Steps
 - Home
 - Search Results
 - Product Details
