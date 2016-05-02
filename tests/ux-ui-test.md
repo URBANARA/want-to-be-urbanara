@@ -19,7 +19,7 @@ Choose **two** of this pages bellow and redesign it considering not only the poi
 
 ## Create a navigable prototype 
 
-Create an naviable prototype of our main workflow (try to use wireframes and focus on UX) presenting your first impressions proposal for the flow, make sure you dont forget a step or if you choose to remove any explain why:
+Create an naviable prototype of our purchase workflow (try to use wireframes and focus on UX) presenting your proposal ideas for the flow, make sure you dont forget a step however if you choose to remove any steps just present an explanation of why:
 
 - Home
 - Search Results
