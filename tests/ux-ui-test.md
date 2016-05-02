@@ -2,6 +2,14 @@
 
 ## Create an URBANARA's benchmarking model
 
+You can choose one of the business goals bellow and focus your benchmarking on one, then develop it by going into key points such as how can you improve them with UX.
+
+> Choose one of this business goals:
+* Increase Convertion Rate
+* Increase Sales Channels (assume only web exists)
+* Increase countries portifolio (internationalisation)
+* Reduce Bounce Rate
+
 ## Create a Research Plan
 
 In order to better understand your working mindset we would like you to present a research plan if you were working here ( feel free to use any kind of technick or tool in this )
