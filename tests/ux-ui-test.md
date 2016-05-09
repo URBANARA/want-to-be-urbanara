@@ -40,3 +40,9 @@ Create a navigable prototype of our purchase workflow (try to use wireframes and
 - Cart
 - Checkout
 - Success Page (purchase success)
+
+# Tips
+
+> Remember this is a test only not a project and we DO NOT intent to use this as project material anyhow, this is to test you skills only so be brief in each test and try to show your skill points on it.
+
+> Choose the tests that better demonstrate your strong capabilities if you do not feel comfortable in doing all the tests
