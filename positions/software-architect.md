@@ -4,7 +4,7 @@
 
 We're looking for a strong **PHP Software Architect** to perform as **Tech Lead acting** as a **Senior PHP Developer** to help us grow and evolve as both team and company.
 
-We're a small team that want to acheive great things, we encourage the creativity and ideas and also want to be a edge-tech company by having the best technoloy in place, ideas, process and more.
+We're a small team that want to achieve great things, we encourage the creativity and ideas and also want to be a edge-tech company by having the best technology in place, ideas, process and more.
 
 > We are looking for engaged people that will add value for the company and the team. People that know how to work together.
 
@@ -43,7 +43,7 @@ We're a small team that want to acheive great things, we encourage the creativit
 - 6 years or more of experience
 
 
-### Diferential
+### Differential
 
 - Symfony2
 - Doctrine2
