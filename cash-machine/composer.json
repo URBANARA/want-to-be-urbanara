@@ -1,0 +1,19 @@
+{
+  "name": "kisphp/cash-machine-challenge",
+  "authors": [
+    {
+      "name": "Marius-Bogdan Rizac",
+      "email": "mariusbogdan83@gmail.com",
+      "homepage": "http://www.kisphp.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Kisphp\\": "src/Kisphp/"
+    }
+  },
+  "require-dev": {
+    "symfony/var-dumper": "3.0.*",
+    "phpunit/phpunit": "4.8.*"
+  }
+}
