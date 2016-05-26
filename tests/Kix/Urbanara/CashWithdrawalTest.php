@@ -51,4 +51,25 @@ class CashWithdrawalTest extends \PHPUnit_Framework_TestCase
             [null, []]
         ];
     }
+
+    /**
+     * @test
+     * @dataProvider provideInvalidDenominationSets
+     */
+    public function it_throws_for_invalid_denominations($denominations)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+
+        new CashWithdrawal(100, $denominations);
+    }
+
+    public function provideInvalidDenominationSets()
+    {
+        return [
+            [['blah', 'test', 100]],
+            [['0xff']],
+            [[]]
+        ];
+    }
+
 }

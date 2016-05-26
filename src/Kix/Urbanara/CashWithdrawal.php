@@ -2,6 +2,8 @@
 
 namespace Kix\Urbanara;
 
+use Kix\Urbanara\CashWithdrawal\DenominationCollection;
+
 class CashWithdrawal
 {
     private $amount;
@@ -10,10 +12,9 @@ class CashWithdrawal
 
     public function __construct(float $amount = null, array $denominations = [100.00, 50.00, 20.00, 10.00])
     {
-        sort($denominations);
-        $this->availableDenominations = array_reverse($denominations);
+        $this->availableDenominations = new DenominationCollection($denominations);
 
-        if ($amount % min($this->availableDenominations) > 0) {
+        if ($amount % $this->availableDenominations->min() > 0) {
             throw new NoteUnavailableException();
         }
 
@@ -24,7 +25,7 @@ class CashWithdrawal
             ));
         }
 
-        $this->amount = (float) $amount;
+        $this->amount = $amount;
     }
 
     public function execute() : array
