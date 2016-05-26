@@ -14,15 +14,15 @@ class CashWithdrawal
     {
         $this->availableDenominations = new DenominationCollection($denominations);
 
-        if ($amount % $this->availableDenominations->min() > 0) {
-            throw new NoteUnavailableException();
-        }
-
         if ($amount < 0) {
             throw new \InvalidArgumentException(sprintf(
                 '`%s` is not a valid amount. Amount should be a positive number',
                 $amount
             ));
+        }
+        
+        if ($amount % $this->availableDenominations->min() > 0) {
+            throw new NoteUnavailableException();
         }
 
         $this->amount = $amount;
