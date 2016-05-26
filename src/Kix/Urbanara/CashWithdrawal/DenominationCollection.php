@@ -17,15 +17,15 @@ class DenominationCollection implements \Iterator
             throw new \InvalidArgumentException('At least one denomination is required');
         }
 
-        array_map(function ($denomination) {
-            if (!is_numeric($denomination)) {
+        $denominations = array_map(function ($denomination) {
+            if (!is_numeric($denomination) || $denomination <= 0) {
                 throw new \InvalidArgumentException(sprintf(
                     '%s is not a valid denomination',
                     $denomination
                 ));
             }
 
-            return (float) $denomination;
+            return $denomination * 100;
         }, $denominations);
 
         sort($denominations);

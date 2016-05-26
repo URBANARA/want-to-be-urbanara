@@ -21,11 +21,11 @@ class CashWithdrawal
             ));
         }
         
-        if ($amount % $this->availableDenominations->min() > 0) {
+        $this->amount = $amount * 100;
+
+        if ($this->amount % $this->availableDenominations->min() > 0) {
             throw new NoteUnavailableException();
         }
-
-        $this->amount = $amount;
     }
 
     public function execute() : array
@@ -35,7 +35,7 @@ class CashWithdrawal
 
         foreach ($this->availableDenominations as $amount) {
             while ($remainder >= $amount) {
-                $banknotes []= $amount;
+                $banknotes []= $amount * 0.01;
                 $remainder -= $amount;
             }
         }

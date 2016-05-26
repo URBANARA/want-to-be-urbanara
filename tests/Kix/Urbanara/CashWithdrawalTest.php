@@ -31,9 +31,14 @@ class CashWithdrawalTest extends \PHPUnit_Framework_TestCase
      * @test
      * @dataProvider provideExampleWithdrawals
      */
-    public function it_calculates_correct_amounts($requestedAmount, $expectedBills)
+    public function it_calculates_correct_amounts($requestedAmount, $expectedBills, $denominations = null)
     {
-        $withdrawal = new CashWithdrawal($requestedAmount);
+        if ($denominations) {
+            $withdrawal = new CashWithdrawal($requestedAmount, $denominations);
+        } else {
+            $withdrawal = new CashWithdrawal($requestedAmount);
+        }
+
         $actualBills = $withdrawal->execute();
 
         static::assertEquals($expectedBills, $actualBills);
@@ -48,6 +53,7 @@ class CashWithdrawalTest extends \PHPUnit_Framework_TestCase
             [100, [100.00]],
             [200, [100.00, 100.00]],
             [50.00, [50.00]],
+            [31.20, [30.00, 1.00, 0.1, 0.1], [30.00, 1.00, 0.1]],
             [null, []]
         ];
     }
