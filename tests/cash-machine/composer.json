@@ -1,0 +1,23 @@
+{
+    "name": "CashMachine",
+    "description": "Solution for the CashMachine test (https://github.com/URBANARA/want-to-be-urbanara/blob/master/tests/cash-machine.md)",
+    "authors": [
+        {
+            "name": "Walter Carrer Neto",
+            "email": "carrer@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.5.*",
+        "phpdocumentor/phpdocumentor":"2.*",
+        "phpunit/php-code-coverage": "^4.0",
+        "phpunit/php-token-stream": "^1.4"
+    },
+    "scripts": {
+        "post-update-cmd": "@test",
+        "test": "phpunit"
+    }
+}
