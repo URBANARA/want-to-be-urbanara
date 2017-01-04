@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Services\Account\AccountOperationInterface;
 
 class AccountController extends Controller
 {
@@ -21,20 +21,16 @@ class AccountController extends Controller
     * @param Request $request
     * @return Response
     */
-    public function withdraw(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'cash' => 'required|numeric',
-        ]);
-
-        if ($validator->fails()) {
-            return redirect('account')
-                ->withErrors($validator)
-                ->withInput();
+    public function withdraw(
+        Request $request,
+        AccountOperationInterface $accountOperation
+    ) {
+        if (! $accountOperation->hasValidData($request)) {
+            exit('invalid data');
         }
 
-        $cashRequested = $request->input('cash');
+        $result = $accountOperation->processOperation($request);
 
-        exit($cashRequested);
+        exit($result);
     }
 }
