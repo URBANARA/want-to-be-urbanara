@@ -28,7 +28,12 @@
                 action="{{ action('AccountController@withdraw') }}">
                 {{ csrf_field() }}
 
-                <input hidden="operation" value="withdraw">
+                <input type="hidden" name="operation" value="withdraw">
+                @if ($errors->has('operation'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('operation') }}</strong>
+                    </span>
+                @endif
                 <h2 class="form-account-heading">Unlimited Cash</h2>
 
                 <div

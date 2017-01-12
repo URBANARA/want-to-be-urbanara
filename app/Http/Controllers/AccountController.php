@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\Account\AccountOperationInterface;
+use App\Services\Account\Contracts\AccountOperationInterface;
 
 class AccountController extends Controller
 {
@@ -21,16 +21,14 @@ class AccountController extends Controller
     * @param Request $request
     * @return Response
     */
-    public function withdraw(
-        Request $request,
-        AccountOperationInterface $accountOperation
-    ) {
-        if (! $accountOperation->hasValidData($request)) {
-            exit('invalid data');
+    public function withdraw(Request $request, AccountOperationInterface $accountOperation) {
+
+        if (! $accountOperation->hasValidData()) {
+            return redirect('account')
+                ->withErrors($accountOperation->getValidator())
+                ->withInput();
         }
 
-        $result = $accountOperation->processOperation($request);
-
-        exit($result);
+        return $accountOperation->processOperation($request);
     }
 }
