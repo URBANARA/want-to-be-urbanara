@@ -1,0 +1,21 @@
+{
+    "name": "vinicius/want-to-be-urbanara",
+    "type": "project",
+    "require": {
+        "php": ">=7.1",
+        "phpunit/phpunit": "^5.7"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vinicius",
+            "email": "vinyvicente@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Urbanara\\": "src/"
+        }
+    }
+}
