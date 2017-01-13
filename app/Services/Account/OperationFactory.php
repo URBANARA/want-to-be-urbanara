@@ -4,6 +4,7 @@ namespace App\Services\Account;
 
 use App\Services\Account\Contracts\OperationFactoryInterface;
 use App\Services\Account\Exceptions\OperationNotFoundException;
+use App\Services\Account\AvailableBankNotes;
 use Illuminate\Http\Request;
 
 class OperationFactory implements OperationFactoryInterface
@@ -28,9 +29,6 @@ class OperationFactory implements OperationFactoryInterface
      */
     public function getValidatorFromRequest(Request $request)
     {
-        // if (! $operation = $request->input(self::OPERATION_INDEX)) {
-        //     throw new OperationNotFoundException("The requested operation can not be null");
-        // }
         $operation = $request->input(self::OPERATION_INDEX)
             ? $request->input(self::OPERATION_INDEX)
             : self::DEFAULT_VALIDATOR;
@@ -62,7 +60,7 @@ class OperationFactory implements OperationFactoryInterface
         $fullClassNameStrategy = 'App\Services\Account\\' . ucwords($operation) . 'AccountOperationStrategy';
 
         if (class_exists($fullClassNameStrategy)) {
-            return new $fullClassNameStrategy($request);
+            return new $fullClassNameStrategy($request, new AvailableBankNotes());
         }
 
         throw new OperationNotFoundException("The requested operation was not found");

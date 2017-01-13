@@ -28,7 +28,51 @@ class AccountOperationServiceTest extends TestCase
             'Illuminate\Validation\Validator',
             $accountService->getValidator()
         );
-        $this->assertEquals($accountService->processOperation(), '123123');
+        $this->assertEquals(
+            $accountService->processOperation(),
+            [
+                '100' => 9,
+                '50'  => 1,
+                '20'  => 1,
+                '10'  => 1
+            ]
+        );
+    }
+
+    /**
+     * Instantiate AccountOperationService with input cash and remainders
+     */
+    public function testAccountOperationServiceWithRemainder()
+    {
+        $accountService = new AccountOperationService(
+            $this->getRequestWithCashAndRemainders(),
+            new OperationFactory()
+        );
+
+        $accountService->hasValidData();
+        $accountService->processOperation();
+        $this->assertEquals(
+            $accountService->getMessages(),
+            [ 0 => 'There are no bank notes available to make up the amount requested']
+        );
+    }
+
+    /**
+     * Instantiate AccountOperationService with negative input cash
+     */
+    public function testAccountOperationServiceWithNegativeCash()
+    {
+        $accountService = new AccountOperationService(
+            $this->getRequestWithNegativeCash(),
+            new OperationFactory()
+        );
+
+        $accountService->hasValidData();
+        $accountService->processOperation();
+        $this->assertEquals(
+            $accountService->getMessages(),
+            [ 0 => 'The amount requested can not be less than zero']
+        );
     }
 
     /**
@@ -77,7 +121,17 @@ class AccountOperationServiceTest extends TestCase
         return $this->mockRequest(
             [
                 'operation' => 'withdraw',
-                'cash' => '123123'
+                'cash' => '980.00'
+            ]
+        );
+    }
+
+    private function getRequestWithCashAndRemainders()
+    {
+        return $this->mockRequest(
+            [
+                'operation' => 'withdraw',
+                'cash' => '675.00'
             ]
         );
     }
@@ -89,6 +143,15 @@ class AccountOperationServiceTest extends TestCase
     private function getRequestWithNoOperationValue()
     {
         return $this->mockRequest(['operation' => '', 'cash' => '321312']);
+    }
+
+    /**
+     * Mock a request with no input operation value
+     * @return Illuminate\Http\Request
+     */
+    private function getRequestWithNegativeCash()
+    {
+        return $this->mockRequest(['operation' => 'withdraw', 'cash' => '-160']);
     }
 
     /**

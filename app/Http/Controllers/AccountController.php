@@ -29,6 +29,8 @@ class AccountController extends Controller
                 ->withInput();
         }
 
-        return $accountOperation->processOperation($request);
+        return redirect('account')
+            ->with('bankNotes', $accountOperation->processOperation($request))
+            ->with('messages', $accountOperation->getMessages());
     }
 }

@@ -7,6 +7,8 @@ use App\Services\Account\Contracts\AccountOperationInterface;
 use App\Services\Account\Contracts\OperationFactoryInterface;
 use App\Services\Account\Contracts\AccountOperationStrategyInterface;
 use App\Services\Account\Exceptions\OperationNotFoundException;
+use App\Services\Account\Exceptions\NoteUnavailableException;
+use App\Services\Account\Exceptions\InvalidArgumentException;
 use Illuminate\Http\Request;
 
 class AccountOperationService implements AccountOperationInterface
@@ -65,7 +67,17 @@ class AccountOperationService implements AccountOperationInterface
      * @return [type] [description]
      */
     public function processOperation() {
-        return $this->getStrategy()->processOperation();
+        $bankNotesResult = [];
+
+        try {
+            $bankNotesResult = $this->getStrategy()->processOperation();
+        } catch (NoteUnavailableException $e) {
+            $this->setMessages($e->getMessage());
+        } catch (InvalidArgumentException $e) {
+            $this->setMessages($e->getMessage());
+        }
+
+        return $bankNotesResult;
     }
 
     /**
@@ -89,7 +101,7 @@ class AccountOperationService implements AccountOperationInterface
      * [setMessages]
      * @param [string] $message
      */
-    public function setMessages($message)
+    private function setMessages($message)
     {
         array_push($this->messages, $message);
     }

@@ -22,4 +22,10 @@ interface AccountOperationInterface
      * @return [type] [description]
      */
     public function processOperation();
+
+    /**
+     * [getMessages]
+     * @return [array]
+     */
+    public function getMessages();
 }

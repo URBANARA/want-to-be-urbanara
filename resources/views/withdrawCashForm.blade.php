@@ -10,6 +10,7 @@
         <!-- Bootstrap -->
         <link href="/css/bootstrap.min.css" rel="stylesheet">
         <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
         <link href="/css/styles.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -27,6 +28,14 @@
                 method="POST"
                 action="{{ action('AccountController@withdraw') }}">
                 {{ csrf_field() }}
+
+                @if (session('messages'))
+                    <div class="alert alert-danger">
+                        @foreach (session('messages') as $message)
+                            <strong>{{ $message }}</strong>
+                        @endforeach
+                    </div>
+                @endif
 
                 <input type="hidden" name="operation" value="withdraw">
                 @if ($errors->has('operation'))
@@ -65,6 +74,23 @@
                     withdraw
                 </button>
             </form>
+            @if (session('bankNotes'))
+
+                    @foreach (session('bankNotes') as $bankNote => $quantity)
+                        <div class="row bank_note_box alert alert-success">
+                            <div class="col-md-2">
+                                <i class="fa fa-money fa-2x" aria-hidden="true"></i>
+                            </div>
+                            <div class="col-md-5">
+                                Banknote: <strong>R$ {{ $bankNote }}</strong>
+                            </div>
+                            <div class="col-md-5">
+                                Quantity: <strong>{{ $quantity }}</strong>
+                            </div>
+                        </div>
+                    @endforeach
+
+            @endif
         </div>
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
