@@ -1,4 +1,8 @@
-import * as gg from './src/machine';
+import { takeMoneyOut } from './src/machine';
 
 
-console.log(gg);
+console.log(takeMoneyOut(null));
+console.log(takeMoneyOut(100));
+console.log(takeMoneyOut(10));
+console.log(takeMoneyOut(200));
+console.log(takeMoneyOut(201));

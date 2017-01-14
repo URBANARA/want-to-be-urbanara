@@ -1,12 +1,14 @@
+import NoteUnavailableException from './Exception/NoteUnavailableException';
+import InvalidArgumentException from './Exception/InvalidArgumentException';
+
 const notes = [100.00, 50.00, 20.00, 10.00];
 
 let checkIsPostiveNumber = (value) => {
-    if (value && value < 0)
-        throw Error('GG')
+    if (value < 0)
+        throw new InvalidArgumentException('InvalidArgumentException');
 };
 
 let getNotes = (value) => {
-    let total = 0;
     let listNotes = [];
 
     while (value > 0) {
@@ -14,21 +16,19 @@ let getNotes = (value) => {
             let mod = value % note;
             if (mod !== value && mod == 0) {
                 value -= note;
-                listNotes.push(note)
-                total += note;
+                listNotes.push(note);
                 return;
             }
         });
         if (!listNotes.length)
-            throw Error('GG2')
+            throw new NoteUnavailableException('NoteUnavailableException');
     }
 
-    return listNote;
-};
+    return listNotes.sort((a, b)=>b - a);
+}
 
-export
-giveMoney = (value) => {
-    value = value.toFixed(2);
+
+export function takeMoneyOut(value) {
     checkIsPostiveNumber(value);
-    getNotes(value);
-};
+    return getNotes(value);
+}
