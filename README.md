@@ -36,6 +36,8 @@ Example:
   **Entry:** NULL  
   **Result:** [Empty Set]
 
-
-
-Run ``` npm test ```
+```
+For to run the project you need 
+- npm install
+- npm test
+```
