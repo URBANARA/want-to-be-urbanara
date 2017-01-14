@@ -1,27 +1,41 @@
-# About URBANARA
+Cash Machine
+============
 
-The URBANARA vision is simple: we believe that beautiful, high-quality products should be available to everyone.
+The Problem
+----------
 
-Located in the heart of Berlin and supported by our satellite office in Shanghai, URBANARA has a fresh, inspired approach to business. We know that each employee has something valuable to offer. From day one you will be responsible to manage your own workload and collaborate creatively with various departments.
+Develop a solution that simulate the delivery of notes when a client does a withdraw in a cash machine. 
 
-Our team of over 60 employees hail from more than 20 countries and share a common vision of building an international, online brand. If you share our passion and feel you can bring something special to our team, we’d love to hear from you.
+The basic requirements are the follow:
 
-# How to submit the test
+* Always deliver the lowest number of possible notes; 
+* It's possible to get the amount requested with available notes;
+* The client balance is infinite;
+* Amount of notes is infinite; 
+* Available notes R$ 100,00; R$ 50,00; R$ 20,00 e R$ 10,00
 
-## Choose one of the two available tests:
+Example:
+---------
+* 
+ **Entry:** 30.00  
+ **Result:** [20.00, 10.00]
 
-* [**cash-machine**](https://github.com/URBANARA/want-to-be-urbanara/blob/master/tests/cash-machine.md)
-* [**group-by-interval**](https://github.com/URBANARA/want-to-be-urbanara/blob/master/tests/group-by-interval.md)
+* 
+  **Entry:** 80.00  
+  **Result:** [50.00, 20.00, 10.00]
 
-## Pull request your test
+* 
+  **Entry:** 125.00  
+  **Result:** *throw NoteUnavailableException*
 
-Do a Pull Request with your code/test solved and we will use it to analyse what / how it was done.
+* 
+ **Entry:** -130.00   
+ **Result:** *throw InvalidArgumentException*
 
-Then Send an email to hr@urbanara.com with your resume and the link of your pull request in our repository
+* 
+  **Entry:** NULL  
+  **Result:** [Empty Set]
 
-# Considerations
 
-* Use the most appropriated language/stack to develop your solution
-* Try to be the most clear as possible in your test
-* Make sure you're using the tech stack that you feel more comfortable
-* Have fun
+
+Run ``` npm test ```
