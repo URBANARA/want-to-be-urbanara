@@ -25,12 +25,12 @@ describe('Cash Machine', ()=> {
         money.should.have.to.eql([]);
     });
 
-    it('Sould be Error InvalidArgumentException', ()=> {
+    it('Expect Error InvalidArgumentException', ()=> {
         let fn = () => takeMoneyOut(-10);
         expect(fn).to.throw(Error, 'InvalidArgumentException');
     });
 
-    it('Sould be Error NoteUnavailableException', ()=> {
+    it('Expect Error NoteUnavailableException', ()=> {
         let fn = () => takeMoneyOut(11);
         expect(fn).to.throw(Error, 'NoteUnavailableException');
     });
