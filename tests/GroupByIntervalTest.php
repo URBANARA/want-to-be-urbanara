@@ -41,9 +41,7 @@ class GroupByIntervalTest extends TestCase
 
         $number_set = [10, 1, 'A',  14, 99, 133, 19, 20, 117, 22, 93,  120, 131];
 
-        $grouper = new Grouper($range, $number_set);
-
-        $grouper->result();
+        new Grouper($range, $number_set);
     }
 
     /**

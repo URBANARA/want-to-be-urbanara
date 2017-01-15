@@ -24,7 +24,14 @@ class Grouper
     public function __construct(int $range, array $number_set)
     {
         $this->range = $range;
-        $this->number_set = $number_set;
+
+        $this->number_set = array_map(function ($number) {
+
+            $this->validateNumber($number);
+
+            return $number;
+
+        }, $number_set);;
     }
 
     /**
@@ -64,13 +71,7 @@ class Grouper
     {
         sort($this->number_set);
 
-        return array_map(function ($number) {
-
-            $this->validateNumber($number);
-
-            return $number;
-
-        }, $this->number_set);
+        return $this->number_set;
     }
 
     /**
