@@ -41,9 +41,7 @@ class Grouper
 
         $point = $this->getInitPoint($first);
 
-        while ($number = current($number_set)) {
-
-            $this->validateNumber($number);
+        while (current($number_set)) {
 
             $group = $this->groupInRange($point, $number_set);
 
@@ -109,7 +107,7 @@ class Grouper
     {
         $init = $this->range;
 
-        while ($init > $first) {
+        while ($init >= $first) {
             $init -= $this->range;
         }
 
