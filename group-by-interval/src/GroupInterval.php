@@ -64,6 +64,6 @@ class GroupInterval
      */
     protected static function isRange(int $value, $min, $max)
     {
-        return ($value >= $min) && ($value <= $max);
+        return in_array($value, range($min, $max));
     }
 }
