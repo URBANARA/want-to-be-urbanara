@@ -13,7 +13,7 @@ class GroupInterval
      * @param array $numberSet
      * @return array
      */
-    public static function order(?int $range, ?array $numberSet = [])
+    public static function order(?int $range, ?array $numberSet = []): array
     {
         if (is_null($range) || is_null($numberSet)) {
             return [];
@@ -62,7 +62,7 @@ class GroupInterval
      * @param $max
      * @return bool
      */
-    protected static function isRange(int $value, $min, $max)
+    protected static function isRange(int $value, int $min, int $max): bool
     {
         return in_array($value, range($min, $max));
     }
