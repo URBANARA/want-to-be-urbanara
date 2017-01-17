@@ -6,12 +6,14 @@ class CashMachine {
 
 		let withDrawElement = document.getElementById('withdraw-element');
 		let result = document.getElementById('result');
+		let errorElement = document.querySelector('.error');
 
 		withDrawElement.addEventListener('change', (event) => {
+
+			errorElement.style.opacity = 0;
 			
 			let value = this.withDraw(event.target.value);
-			console.log(typeof value);
-			result.innerHTML = `Notas: <br/> ${value.join('<br/>')}`;
+			result.innerHTML = `Notas: <br/> <span class="note">${value.join('<br/>')}</span>`;
 		});
 	}
 
@@ -21,10 +23,12 @@ class CashMachine {
 		let possibleValue = (value % 10 == 0);
 		
 		if(value < 0){
+			let error = new ErrorNotifier('Negative numbers not accepted')
 			throw new Error('Negative numbers not accepted')
 		}
 		
 		if(!possibleValue){
+			let error = new ErrorNotifier('Note unavaiable')
 			throw new Error('Note unavaiable')
 		}
 
