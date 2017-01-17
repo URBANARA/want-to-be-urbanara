@@ -1,0 +1,17 @@
+#result{
+	text-align: center;
+	color: #333333;
+	font-family: Arial;
+	font-size: 14px;
+}
+
+#withdraw-element{
+	outline: none;
+	border-radius: 2px;
+	border: 1px solid #e2e2e2;
+	margin: 20px auto;
+	display: block;
+	font-family: Arial;
+	text-align: center;
+	font-weight: bold;
+}

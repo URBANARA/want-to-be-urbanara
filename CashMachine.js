@@ -9,7 +9,8 @@ class CashMachine {
 
 		withDrawElement.addEventListener('change', (event) => {
 			
-			let value = this.withDraw(event.target.value)
+			let value = this.withDraw(event.target.value);
+			console.log(typeof value);
 			result.innerHTML = `Notas: <br/> ${value.join('<br/>')}`;
 		});
 	}
