@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <!-- <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> -->
+    <ion-title>Cash Machine</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-fab top right edge>
+    <button ion-fab mini (click)="eraseCash()"><ion-icon ios="ios-trash" md="md-trash"></ion-icon></button>
+  </ion-fab>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Cash</ion-label>
+      <ion-input type="number" [(ngModel)]="cash"></ion-input>
+    </ion-item>
+
+  </ion-list>
+  <br>
+  <button ion-button color="light" round block (click)="seeCashList()">Take your money</button>
+
+  <br>
+  <div *ngIf="cashListaGet.length > 0">
+    Historic:
+    <ion-list>
+      <ion-item *ngFor="let cash of cashListaGet">
+        <ion-icon ios="ios-cash" md="md-cash"></ion-icon>
+        {{cash}}
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
