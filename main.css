@@ -1,0 +1,44 @@
+#result{
+	text-align: center;
+	color: #333333;
+	font-family: Arial;
+	font-size: 14px;
+}
+
+#withdraw-element{
+	outline: none;
+	border-radius: 2px;
+	border: 1px solid #e2e2e2;
+	margin: 20px auto;
+	display: block;
+	font-family: Arial;
+	text-align: center;
+	font-weight: bold;
+}
+
+.error{
+	transition: opacity 0.5s ease-out;
+	opacity: 0;
+	background: #e2e2e2;
+	color: #f00;
+	position: absolute;
+	bottom: 5%;
+	width: 50%;
+	left: 0;
+	border-radius: 10px;
+	text-align: center;
+	padding: 20px;
+	box-sizing: border-box;
+	text-transform: uppercase;
+	transform: translateX(50%);
+}
+
+.note{
+	color: #FFF;
+	border: 2px solid #15690e;
+	background: #428a3a;
+	width: 8%;
+	padding: 5px;
+	margin:5px auto;
+	display: block
+}
