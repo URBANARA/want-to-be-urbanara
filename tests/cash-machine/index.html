@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <style>
+        body {
+            padding-top: 20px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#amount").focus();
+            $('form').submit(function (evt) {
+                evt.preventDefault();
+                var $inputs = $('form :input');
+
+                var values = {};
+                $inputs.each(function () {
+                    values[this.name] = this.type == 'checkbox' ? ( this.checked ? 1 : 0 ) : $(this).val();
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: 'api.php',
+                    data: values,
+                    success: onSuccess,
+                    error: onError,
+                    dataType: 'json'
+                });
+
+            });
+
+            // request responded
+            function onSuccess(data)
+            {
+                if (data.status)
+                {
+                    var notes=[];
+                    for(var note in data.notes)
+                        notes.push({'note': note, 'quantity': data.notes[note]});
+
+                    var msg = "You've got ";
+                    if (notes.length == 0)
+                        msg += 'nothing.';
+                    else if (notes.length == 1)
+                        msg += notes[0].quantity + ( notes[0].quantity > 1 ? ' notes of ' : ' note of ') + notes[0].note;
+                    else{
+                        var pieces = [];
+                        for(var i=0;i<notes.length-1;i++)
+                            pieces.push(notes[i].quantity + ( notes[i].quantity > 1 ? ' notes of ' : ' note of ') + notes[i].note);
+                        msg += pieces.join(', ') + ' and '+notes[notes.length-1].quantity + ( notes[notes.length-1].quantity > 1 ? ' notes of ' : ' note of ') + notes[notes.length-1].note;
+                    }
+
+                    showSuccess('<strong>Alright!</strong> '+msg);
+
+                }
+                else
+                    showError('<strong>Something went wrong!</strong> '+data.error)
+            }
+
+            // ajax failed
+            function onError()
+            {
+                showError('<strong>Something went wrong</strong>! I could not reach the server. =(');
+            }
+
+            // popup positive-styled messages
+            function showSuccess(msg) {
+                $("#error").hide();
+                $("#success").html(msg).fadeIn();
+            }
+
+            // popup negative-styles messages
+            function showError(msg) {
+                $("#success").hide();
+                $("#error").html(msg).fadeIn();
+            }
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">ATM</h3>
+                        </div>
+                        <div class="panel-body">
+                            <h4>
+                                Notes available
+                            </h4>
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                        <input type="checkbox" name="cn1">
+                                    </span>
+                                        <input type="number" name="n1" class="form-control" value="1" data-mask="9999" min="1" max="9999">
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                        <input type="checkbox" name="cn2">
+                                    </span>
+                                        <input type="number" name="n2" class="form-control" value="5" data-mask="9999" min="1" max="9999">
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                        <input type="checkbox" name="cn3" checked>
+                                    </span>
+                                        <input type="number" name="n3" class="form-control" value="10" data-mask="9999" min="1" max="9999">
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                        <input type="checkbox" name="cn4" checked>
+                                    </span>
+                                        <input type="number" name="n4" class="form-control" value="20" data-mask="9999" min="1" max="9999">
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                        <input type="checkbox" name="cn5" checked>
+                                    </span>
+                                        <input type="number" name="n5" class="form-control" value="50" data-mask="9999" min="1" max="9999">
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                        <input type="checkbox" name="cn6" checked>
+                                    </span>
+                                        <input type="number" name="n6" class="form-control" value="100" data-mask="9999" min="1" max="9999">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="row">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-4">
+                                    <div class="input-group">
+                                        <input id="amount" type="number" value="" name="amount" class="form-control" placeholder="Amount">
+                                        <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="submit">Withdraw</button>
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="alert alert-success" style="display: none" role="alert" id="success"></div>
+        <div class="alert alert-danger" style="display: none" role="alert" id="error"></div>
+</body>
+
+</html>
