@@ -17,7 +17,7 @@ Our team of over 60 employees hail from more than 20 countries and share a commo
 
 Do a Pull Request with your code/test solved and we will use it to analyse what / how it was done.
 
-Then Send an email to hr@urbanara.com with your resume and the link of your pull request in our repository
+Then Send an email to jobs@urbanara.com with your resume and the link of your pull request in our repository
 
 # Considerations
 
