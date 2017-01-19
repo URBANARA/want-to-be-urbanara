@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ATM</title>
+</head>
+<body>
+    <input type="number" id="amount-input"/>
+    <button id="withdraw-btn">Withdraw</button>
+
+    <br/>
+    <div id="denominations"></div>
+    <div id="error-msg" style="color:red;font-weight:bold;"></div>
+
+    <script>
+        var dispensedNotes = [];
+
+        /*
+        * Exception for notes not available
+        * */
+        function NoteUnavailableException(message){
+            this.message = message;
+            this.name = 'NoteUnavailableException';
+        }
+
+        /*
+        * Exception for invalid arguments
+        * */
+        function InvalidArgumentException(message){
+            this.message = message;
+            this.name = 'InvalidArgumentException';
+        }
+
+        /**
+         * Function will return a two dimensional array.
+         * Each item of array is an array of denomination and number of notes
+         * @param amount - expected a number amount
+         * */
+        function getDenominations(amount){
+            var availableDenominations = [100, 50, 20, 10],
+                    dispenseDenominations = [];
+
+            if(typeof amount !== 'number'){
+                //denominations are not available for the amount
+                throw new InvalidArgumentException('Argument passed is not a number: ' + amount);
+            }
+
+            if(amount < 1){
+                //denominations are not available for the amount
+                throw new InvalidArgumentException('Invalid amount passed: ' + amount);
+            }
+
+            if(amount % 10 !== 0){
+                //denominations are not available for the amount
+                throw new NoteUnavailableException('Denominations are not available for amount: ' + amount);
+            }
+
+            for(var index = 0; index < availableDenominations.length; index++){
+                var value = availableDenominations[index],
+                        noOfDenominations = Math.floor(amount / value),
+                        remainingAmount = amount % value;
+                dispenseDenominations.push([value, noOfDenominations]);
+                if(remainingAmount === 0){
+                    break;
+                }
+                amount = remainingAmount;
+            }
+
+            console.log(dispenseDenominations.toString());
+            return dispenseDenominations;
+        }
+
+        /*
+        * Function to withdraw money
+        * */
+        function withdrawMoney(){
+            try{
+                //Cle
+                document.getElementById('error-msg').innerHTML = '';
+                document.getElementById('denominations').innerHTML = '';
+                var amount = document.getElementById('amount-input').value;
+                amount = Number(amount);
+                var denominations = getDenominations(amount);
+
+
+                var html = '';
+                denominations.forEach(function(denom){
+                    html += denom[0] + ' x ' + denom[1] + '<br/>';
+                });
+
+                document.getElementById('denominations').innerHTML = html;
+            }
+            catch(e){
+                document.getElementById('error-msg').innerHTML = e.name + '<br/>' + e.message;
+            }
+
+        }
+
+
+        document.getElementById('withdraw-btn').addEventListener('click', withdrawMoney);
+
+        document.getElementById("amount-input").addEventListener("keyup", function(event) {
+                    event.preventDefault();
+                    if (event.keyCode == 13) {
+                        withdrawMoney();
+                    }
+                });
+    </script>
+</body>
+</html>
