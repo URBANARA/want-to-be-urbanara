@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cash Machine</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body, html {
+      font-size: 16px;
+      font-family: Arial;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    label, input {
+      font-size: 16px;
+      margin: .5rem;
+    }
+
+    #resultContainer {
+      border: 1px solid #ccc;
+      width: 50%;
+      margin: 2rem auto;
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <label for="amount">
+      Type the value you want to withdraw:
+      <br>$
+      <input type="number" id="amount" name="amount" value="">
+    </label>
+    <div id="resultContainer"></div>
+  </section>
+</body>
+</html>
