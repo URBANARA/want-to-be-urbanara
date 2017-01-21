@@ -1,0 +1,16 @@
+#!/usr/bin/php
+<?php
+
+$options = getopt("r:");
+$r = (isset($options['r'])) ? $options['r'] : '';
+if ($r === '' || $r <= 0) { 
+	echo "Please provide the value of interval r where r > 0\n\ngroupby -r 10\n\n"; 
+	exit(1); 
+}
+
+require_once("generators/ListGenerator.php");
+$groupMeArr = [0,-2,10, 1, -20,  15, -14, 125, 99, 136, -10, 19, 20, 117, 22, 93,  120, 131];
+$generators = new urbanara\generators\ListGenerator();
+$sortedArr = $generators->sortList($groupMeArr);
+$groupedArr = $generators->groupByInterval($sortedArr,$r);
+print_r($groupedArr);
