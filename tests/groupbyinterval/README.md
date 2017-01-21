@@ -8,6 +8,16 @@ Given a disordered group of integer numbers, positives or negatives, divide the 
 
 *Attention: The sorting algorithm is part of the problem solution, cannot be used language functions to perform it* 
 
+
+Usage:
+----------
+```
+ Command: ./groupby -r 15,  
+ -r defines the range interval where r > 0
+
+ Input array: [10, 1, -20,  14, 99, 136, 19, 20, 117, 22, 93,  120, 131]
+ ```
+
 Example:
 ---------
 * 
