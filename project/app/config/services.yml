@@ -1,0 +1,3 @@
+services:
+    cashmachine:
+        class: Urbanara\CashMachineBundle\Service\Withdraw
