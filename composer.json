@@ -1,0 +1,9 @@
+{
+    "require": {
+        "aura/autoload": "2.0.*"
+    },
+    "require-dev": {
+	"phpmd/phpmd" : "@stable",
+        "phpunit/phpunit": "5.3.*"
+    }
+}
