@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>groupByInterval test</title>
+	<script src="js/groupByInterval.js"></script>
+</head>
+<body>
+	<script>
+		//Test 1
+		var test1 = [10, 1, -20,  14, 99, 136, 19, 20, 117, 22, 93, 120, 131];
+		console.log('Range: 10');
+		console.log(test1, '=>', urbanara.groupByInterval(10, test1));
+
+		//Test 2
+		var test2 = [10, 1, -20,  14, 99, 136, 19, 20, 117, 22, 93, 120, 131];
+		console.log('Range: 15');
+		console.log(test2, '=>', urbanara.groupByInterval(15, test2));
+
+		//Test 4
+		console.log('Range: no range');
+		console.log([], '=>', urbanara.groupByInterval(null, []));
+
+		//Test 3
+		var test3 = [10, 1, 'A',  14, 99, 133, 19, 20, 117, 22, 93,  120, 131];
+		console.log('Range: 15 (invalid argument)');
+		console.log(test3, '=>', urbanara.groupByInterval(15, test3));
+	</script>
+
+	Open the console for more info.
+</body>
+</html>
