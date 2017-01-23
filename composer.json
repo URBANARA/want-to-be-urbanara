@@ -1,0 +1,18 @@
+{
+  "name": "alexastro/cash_machine",
+  "description": "Test task for tech lead position: Cash machine withdraw",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Oleksii Polishchuk",
+      "email": "aleks.polishchuk@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-0": { "CashMachine\\": "results/cash_machine/" }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.3.*"
+  }
+}
