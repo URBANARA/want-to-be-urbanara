@@ -9,7 +9,8 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Urbanara\\CashMachine\\": "tests/unit"
+      "Urbanara\\CashMachine\\UnitTests\\": "tests/unit",
+      "Urbanara\\CashMachine\\IntegrationTests\\": "tests/integration"
     }
   },
   "require": {

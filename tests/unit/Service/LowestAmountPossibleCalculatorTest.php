@@ -1,9 +1,10 @@
 <?php
 
-namespace Urbanara\CashMachine\Service;
+namespace Urbanara\CashMachine\UnitTests\Service;
 
 use InvalidArgumentException;
 use PHPUnit_Framework_TestCase;
+use Urbanara\CashMachine\Service\LowestAmountPossibleCalculator;
 
 /**
  * @author Alexandre Rodrigues Xavier <alexandre.rodrigues.xv@gmail.com>
@@ -79,13 +80,14 @@ class LowestAmountPossibleCalculatorTest extends PHPUnit_Framework_TestCase
      */
     public function testTheSuccessWhenFindingLowestDistribution($amount, array $expectedResult)
     {
-        $this->assertEquals(
-            $expectedResult,
-            $this->lowestAmountPossibleCalculator->findLowestDistribution(
-                $amount,
-                $this->possibilities
-            )
+        $result = $this->lowestAmountPossibleCalculator->findLowestDistribution(
+            $amount,
+            $this->possibilities
         );
+
+        $this->assertEquals($amount, array_sum($result), 'Result sum must be equals to amount');
+
+        $this->assertEquals($expectedResult, $result);
     }
 
     /**
