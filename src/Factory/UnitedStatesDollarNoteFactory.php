@@ -3,14 +3,14 @@
 namespace Urbanara\CashMachine\Factory;
 
 use Urbanara\CashMachine\Entity\Currency;
-use Urbanara\CashMachine\Enum\Currency\EuropeanEuroEnum;
+use Urbanara\CashMachine\Enum\Currency\UnitedStatesDollarEnum;
 
 /**
  * @author  Alexandre Rodrigues Xavier <alexandre.rodrigues.xv@gmail.com>
  *
  * @package Urbanara\CashMachine\Factory
  */
-class EuropeanEuroNoteFactory extends AbstractCurrencyNoteFactory
+class UnitedStatesDollarNoteFactory extends AbstractCurrencyNoteFactory
 {
     /**
      * @return float[]
@@ -18,25 +18,25 @@ class EuropeanEuroNoteFactory extends AbstractCurrencyNoteFactory
     public function getAvailableValues()
     {
         return [
-            500.00,
-            200.00,
             100.00,
             50.00,
             20.00,
             10.00,
             5.00,
+            2.00,
+            1.00,
         ];
     }
 
     /**
-     * @return string
+     * @return \Urbanara\CashMachine\Entity\Currency
      */
     public function buildCurrency()
     {
         return new Currency(
-            EuropeanEuroEnum::ISO_4217,
-            EuropeanEuroEnum::NAME,
-            EuropeanEuroEnum::SYMBOL
+            UnitedStatesDollarEnum::ISO_4217,
+            UnitedStatesDollarEnum::NAME,
+            UnitedStatesDollarEnum::SYMBOL
         );
     }
 }

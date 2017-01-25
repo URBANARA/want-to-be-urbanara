@@ -2,6 +2,7 @@
 
 namespace Urbanara\CashMachine\Factory;
 
+use Urbanara\CashMachine\Entity\Currency;
 use Urbanara\CashMachine\Enum\Currency\BrazilianRealEnum;
 
 /**
@@ -25,10 +26,14 @@ class BrazilianRealNoteFactory extends AbstractCurrencyNoteFactory
     }
 
     /**
-     * @return string
+     * @return \Urbanara\CashMachine\Entity\Currency
      */
-    public function getCurrencyCode()
+    public function buildCurrency()
     {
-        return BrazilianRealEnum::ISO_4217;
+        return new Currency(
+            BrazilianRealEnum::ISO_4217,
+            BrazilianRealEnum::NAME,
+            BrazilianRealEnum::SYMBOL
+        );
     }
 }

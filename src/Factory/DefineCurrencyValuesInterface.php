@@ -17,7 +17,7 @@ interface DefineCurrencyValuesInterface
     public function getAvailableValues();
 
     /**
-     * @return string
+     * @return \Urbanara\CashMachine\Entity\Currency
      */
-    public function getCurrencyCode();
+    public function buildCurrency();
 }

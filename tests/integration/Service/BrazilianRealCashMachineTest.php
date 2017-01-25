@@ -5,7 +5,6 @@ namespace Urbanara\CashMachine\IntegrationTests\Service;
 use PHPUnit_Framework_TestCase;
 use Urbanara\CashMachine\Exception\NoteUnavailableException;
 use Urbanara\CashMachine\Factory\BrazilianRealNoteFactory;
-use Urbanara\CashMachine\Factory\CurrencyFactory;
 use Urbanara\CashMachine\Service\CashMachine;
 use Urbanara\CashMachine\Service\LowestAmountPossibleCalculator;
 
@@ -29,9 +28,7 @@ class BrazilianRealCashMachineTest extends PHPUnit_Framework_TestCase
     {
         $this->cashMachine = new CashMachine(
             new LowestAmountPossibleCalculator(),
-            new BrazilianRealNoteFactory(
-                new CurrencyFactory()
-            )
+            new BrazilianRealNoteFactory()
         );
     }
 

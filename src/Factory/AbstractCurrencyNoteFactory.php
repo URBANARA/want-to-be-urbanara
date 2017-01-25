@@ -14,18 +14,16 @@ use Urbanara\CashMachine\Entity\CurrencyNote;
 abstract class AbstractCurrencyNoteFactory implements DefineCurrencyValuesInterface
 {
     /**
-     * @var \Urbanara\CashMachine\Factory\CurrencyFactory
+     * @var \Urbanara\CashMachine\Entity\Currency
      */
-    protected $currencyFactory;
+    protected $currency;
 
     /**
      * AbstractCurrencyNoteFactory constructor.
-     *
-     * @param \Urbanara\CashMachine\Factory\CurrencyFactory $currencyFactory
      */
-    public function __construct(CurrencyFactory $currencyFactory)
+    public function __construct()
     {
-        $this->currencyFactory = $currencyFactory;
+        $this->currency = $this->buildCurrency();
     }
 
     /**
@@ -33,13 +31,20 @@ abstract class AbstractCurrencyNoteFactory implements DefineCurrencyValuesInterf
      */
     public function getAvailableCurrencyNotes()
     {
-        $currency = $this->currencyFactory->buildByIso4217Code($this->getCurrencyCode());
         $availableCurrencyNotes = [];
 
         foreach ($this->getAvailableValues() as $currencyNoteValue) {
-            $availableCurrencyNotes[] = new CurrencyNote($currency, $currencyNoteValue);
+            $availableCurrencyNotes[] = new CurrencyNote($this->currency, $currencyNoteValue);
         }
 
         return $availableCurrencyNotes;
+    }
+
+    /**
+     * @return \Urbanara\CashMachine\Entity\Currency
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
     }
 }
