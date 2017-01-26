@@ -40,7 +40,7 @@ class CashMachine
     /**
      * @param float $amount
      *
-     * @return array
+     * @return float[]
      *
      * @throws \Urbanara\CashMachine\Exception\NoteUnavailableException
      */
