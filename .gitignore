@@ -1,0 +1,4 @@
+.idea
+tests/coverage/*
+!tests/coverage/.gitkeep
+vendor
