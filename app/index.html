@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>[Urbanara] Cash Machine Test</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Lucas Gerisztein">
+  <meta name="description" content="Urbanara Cash Machine Test">
+  <link rel="shortcut icon" type="image/x-icon" href="http://www.urbanara.co.uk/img/favicon.ico?1474897910" />
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Cash Machine</h1>
+    <form name="cashmachine" id="form">
+      <label for="amount">
+        <p>Amount:</p>
+        <span>$</span> <input type="number" id="amount" autofocus> <small>.00</small>
+        <p><small id="available">Available bills: $10, $20, $50, $100</small></p>
+      </label>
+      <div>
+        <button type="submit">Withdraw!</button>
+      </div>
+    </form>
+
+    <div id="response"></div>
+  </div>
+  <script src="bundle.js"></script>
+</body>
+</html>
