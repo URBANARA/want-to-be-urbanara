@@ -1,0 +1,8 @@
+Carneiro\CashMachine\CashMachine
+ [x] With entry of 30
+ [x] With entry of 80
+ [x] With entry of 380
+ [x] With invalid note
+ [x] With negative number
+ [x] With null entry
+

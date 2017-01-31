@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="tests/" tests="6" assertions="10" failures="0" errors="0" time="0.118400">
+    <testsuite name="Carneiro\CashMachine\CashMachineTest" file="C:\Users\carne\Desktop\ucc\want-to-be-urbanara\solutions\fredcarneiro\tests\CashMachineTest.php" tests="6" assertions="10" failures="0" errors="0" time="0.118400">
+      <testcase name="testWithEntryOf30" class="Carneiro\CashMachine\CashMachineTest" file="C:\Users\carne\Desktop\ucc\want-to-be-urbanara\solutions\fredcarneiro\tests\CashMachineTest.php" line="18" assertions="2" time="0.088217"/>
+      <testcase name="testWithEntryOf80" class="Carneiro\CashMachine\CashMachineTest" file="C:\Users\carne\Desktop\ucc\want-to-be-urbanara\solutions\fredcarneiro\tests\CashMachineTest.php" line="34" assertions="2" time="0.000846"/>
+      <testcase name="testWithEntryOf380" class="Carneiro\CashMachine\CashMachineTest" file="C:\Users\carne\Desktop\ucc\want-to-be-urbanara\solutions\fredcarneiro\tests\CashMachineTest.php" line="50" assertions="2" time="0.001234"/>
+      <testcase name="testWithInvalidNote" class="Carneiro\CashMachine\CashMachineTest" file="C:\Users\carne\Desktop\ucc\want-to-be-urbanara\solutions\fredcarneiro\tests\CashMachineTest.php" line="66" assertions="1" time="0.005668"/>
+      <testcase name="testWithNegativeNumber" class="Carneiro\CashMachine\CashMachineTest" file="C:\Users\carne\Desktop\ucc\want-to-be-urbanara\solutions\fredcarneiro\tests\CashMachineTest.php" line="80" assertions="1" time="0.021641"/>
+      <testcase name="testWithNullEntry" class="Carneiro\CashMachine\CashMachineTest" file="C:\Users\carne\Desktop\ucc\want-to-be-urbanara\solutions\fredcarneiro\tests\CashMachineTest.php" line="95" assertions="2" time="0.000794"/>
+    </testsuite>
+  </testsuite>
+</testsuites>
