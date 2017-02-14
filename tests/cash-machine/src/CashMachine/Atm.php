@@ -18,7 +18,7 @@
     {
 
         /**
-         * @var array
+         * @var array all available bills for this ATM
          * @access ${private}
          */
         private $bills = [];
@@ -40,6 +40,7 @@
          */
         public function loadWithMoney($bills)
         {
+            sort($bills);
             $this->bills = $bills;
         }
 
@@ -85,16 +86,20 @@
             return array_sum($this->bills);
         }
 
+        /**
+        * check if the given amount is a valid number
+        * the ATM can deliver
+        **/
         private function checkValidAmount($amount)
         {
+            //we do some mod divisions to ensure that ATM will have all available notes
             foreach ($this->bills as $bill) {
-                if (($amount%$bill)!=0) {
-                    return false;
+                $remaining = ($amount>$note)?$amount%$note:$note%$amount;
+                if ($remaining < $note) {
+                    continue;
                 }
             }
-            return true;
+            //If some value remains, it means that ATM hasnt all bucks
+            return ($remaining>0);
         }
-
-
-
     }
