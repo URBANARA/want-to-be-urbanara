@@ -27,20 +27,19 @@
          * Atm constructor.
          * @access public
          */
-        public function __construct()
+        public function __construct($bills)
         {
             //In this particular case, we will fill ATM with money as soon as it arrives.
-            $this->loadWithMoney([100,50,20,10]);
+            $this->loadWithMoney($bills);
         }
 
         /**
          * Load the ATM with money.
-         * @param $bills
+         * @param $bills array with bills (e.g [50,30,10])
          * @access
          */
         public function loadWithMoney($bills)
         {
-            sort($bills);
             $this->bills = $bills;
         }
 
@@ -52,14 +51,16 @@
          * @return array|NoteUnavailableException|InvalidArgumentException
          */
         public function withdrawMoney($amount) {
-            // TODO: Implement withdrawMoney() method.
             try
             {
-                if (!$this->checkValidAmount($amount)) {
-                    throw new NoteUnavailableException("");
+                if($amount==0) {
+                    return null;
                 }
                 if ($amount < 0 ) {
-                    throw new InvalidArgumentException("");
+                    throw new InvalidArgumentException();
+                }
+                if (!$this->checkValidAmount($amount)) {
+                    throw new NoteUnavailableException();
                 }
                 $noteCount = 0;
                 $result = [];
@@ -78,10 +79,14 @@
             catch(InvalidArgumentException $invalidEx) {
                 return $invalidEx;
             }
-
         }
 
 
+        /**
+         * Get the sum of all available bills loaded in ATM
+         * @access private
+         * @return number
+         */
         private function getSumOfAllAvailableBills() {
             return array_sum($this->bills);
         }
@@ -89,17 +94,19 @@
         /**
         * check if the given amount is a valid number
         * the ATM can deliver
+         * @access private
+         * @return bool
         **/
         private function checkValidAmount($amount)
         {
             //we do some mod divisions to ensure that ATM will have all available notes
-            foreach ($this->bills as $bill) {
+            foreach ($this->bills as $note) {
                 $remaining = ($amount>$note)?$amount%$note:$note%$amount;
                 if ($remaining < $note) {
                     continue;
                 }
             }
-            //If some value remains, it means that ATM hasnt all bucks
-            return ($remaining>0);
+            //If some value remains, it means that ATM hasnt all bucks we need
+            return ($remaining==0);
         }
     }

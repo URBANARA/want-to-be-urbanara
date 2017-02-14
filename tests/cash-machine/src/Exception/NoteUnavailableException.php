@@ -11,7 +11,4 @@
 
     use Exception;
 
-    class NoteUnavailableException extends \Exception
-    {
-
-    }
+    class NoteUnavailableException extends \Exception { }

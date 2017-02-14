@@ -1,6 +1,6 @@
 <?php
     /**
-     *
+     * TestAtm.php
      * Here we have a few tests not only to show ATM functionality
      * but also helping in documentation
      *
@@ -12,6 +12,8 @@
     require __DIR__.'/../vendor/autoload.php';
 
     use CashMachine\Atm;
+    use Exception\InvalidArgumentException;
+    use Exception\NoteUnavailableException;
 
     class TestAtm extends \PHPUnit_Framework_TestCase
     {
@@ -19,8 +21,8 @@
         private $atm;
 
         public function setUp()
-        {
-            $this->atm = new Atm();
+        {   //Fill ATM with requested bills (as described in README.md)
+            $this->atm = new Atm([100,50,20,10]);
         }
 
         /**
@@ -52,22 +54,23 @@
 
         public function testWithdrawing117Bucks()
         {
-            //$atm = new \CashMachine\Atm();
-            //$this->assertEquals(1,1);
+            $result = $this->atm->withdrawMoney(117);
+            $this->assertEquals($result, new NoteUnavailableException());
         }
 
 
         public function testWithdrawingZeroBucks()
         {
-            //$atm = new \CashMachine\Atm();
-            //$this->assertEquals(1,1);
+            $result = $this->atm->withdrawMoney(0);
+            $this->assertEquals($result, 0);
+
         }
 
 
         public function testWithdrawingNegativeBucks()
         {
-            //$atm = new \CashMachine\Atm();
-            //$this->assertEquals(1,1);
+            $result = $this->atm->withdrawMoney(-10);
+            $this->assertEquals($result, new InvalidArgumentException());
         }
 
 
