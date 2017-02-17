@@ -1,0 +1,15 @@
+{
+  "name": "ondrejfuhrer/want-to-beurbanara",
+  "authors": [
+    {
+      "name": "Ondrej Führer",
+      "email": "ondrej@fuhrer.cz"
+    }
+  ],
+  "require": {
+    "phpunit/phpunit": "^5.7"
+  },
+  "autoload": {
+    "psr-4": { "": "src/" }
+  }
+}
