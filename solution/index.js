@@ -19,7 +19,8 @@ function groupByInstance(array, range){
 
     console.log("Groupe By Instance: Range = " + range + ", Array = " + array);
     console.log("--------------------------------------------");
-
+  
+    //Sort Array Algorithm
     for(i = 1; i<array.length; i++){
       if(typeof array[i] == "string" || array[i] === undefined){
         throw new InvalidArgumentException();
@@ -38,7 +39,8 @@ function groupByInstance(array, range){
     }
 
     console.info("Sorted Array: " + array);
-
+  
+    //Group By Instance According to Specific Range
     for(k = 0; k<array.length; k++){
       l = k;
 
