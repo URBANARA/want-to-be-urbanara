@@ -1,0 +1,14 @@
+{
+  "name": "urbanara_challenge",
+  "version": "1.0.0",
+  "description": "Urbanara Challenge: Group By Instance",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mehdi Mahmal",
+  "license": "",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}
