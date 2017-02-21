@@ -1,0 +1,27 @@
+{
+  "name": "koraykupe/want-to-be-urbanara",
+  "description": "This program simulates the delivery of notes when a client does a withdraw in a cash machine.",
+  "authors": [
+    {
+      "name": "Koray Küpe",
+      "email": "koray@koraykupe.com.tr"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=7.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "CashMachine\\": "src/cash-machine"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/"
+    ]
+  }
+}
