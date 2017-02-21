@@ -4,13 +4,11 @@
     class Atm
     {
         private $availableNotes = [100.00, 50.00, 20.00, 10.00];
-        private $max;
         private $min;
 
         public function __construct()
         {
             arsort($this->availableNotes);
-            $this->max = max($this->availableNotes);
             $this->min = min($this->availableNotes);
         }
 
@@ -33,6 +31,7 @@
                     $result = array_merge($result, $notes);
                     $amount -= $note * $thisNoteQty;
                 }
+                if($amount == 0) break;
             }
 
             return $result;
