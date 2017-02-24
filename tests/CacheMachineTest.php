@@ -73,4 +73,10 @@ class CacheMachineTest extends TestCase
         $cache_machine = new CacheMachine();
         $cache_machine->withdraw(125);
     }
+
+    public function testWithdrawWithUnusualNotes()
+    {
+        $cache_machine = new CacheMachine([2.5, 10]);
+        $this->assertEquals([10, 2.5, 2.5, 2.5], $cache_machine->withdraw(17.5));
+    }
 }

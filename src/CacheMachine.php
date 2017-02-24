@@ -19,7 +19,7 @@ class CacheMachine
     public function __construct(array $available_notes = [])
     {
         if (!empty($available_notes)) {
-            $available_notes = array_map('intval', $available_notes);
+            $available_notes = array_map('floatval', $available_notes);
             $available_notes = array_filter($available_notes, function ($x) {return $x > 0;});
             if (!empty($available_notes)) {
                 rsort($available_notes);
