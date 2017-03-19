@@ -1,10 +1,10 @@
 <?php
 
-namespace Sibirtsev\Urbanara;
+namespace Usama;
 
 /**
  * Class NoteUnavailableException
- * @package Sibirtsev\Urbanara
+ * @package Usama
  */
 class NoteUnavailableException extends \Exception
 {

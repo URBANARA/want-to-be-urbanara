@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Sibirtsev\Urbanara;
+namespace Usama;
 
 /**
  * Class GroupByInterval
- * @package Sibirtsev\Urbanara
+ * @package Usama
  */
 class GroupByInterval
 {

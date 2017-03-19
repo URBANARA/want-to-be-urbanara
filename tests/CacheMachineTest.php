@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Sibirtsev\Urbanara;
-
 use PHPUnit\Framework\TestCase;
+use Usama\CacheMachine;
+use Usama\NoteUnavailableException;
 
 class CacheMachineTest extends TestCase
 {
@@ -66,7 +66,7 @@ class CacheMachineTest extends TestCase
     }
 
     /**
-     * @expectedException Sibirtsev\Urbanara\NoteUnavailableException
+     * @expectedException Usama\NoteUnavailableException
      */
     public function testWithdrawWithRemainder()
     {

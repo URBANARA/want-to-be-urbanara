@@ -1,9 +1,8 @@
 <?php
 declare(strict_types=1);
 
-namespace Sibirtsev\Urbanara;
-
 use PHPUnit\Framework\TestCase;
+use Usama\GroupByInterval;
 
 class GroupByIntervalTest extends TestCase
 {
@@ -49,7 +48,7 @@ class GroupByIntervalTest extends TestCase
     }
 
     /**
-     * @expectedException \InvalidArgumentException
+     * @expectedException InvalidArgumentException
      */
     public function testBadData()
     {

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Sibirtsev\Urbanara;
+namespace Usama;
 
 /**
  * Cache Machine implementation
