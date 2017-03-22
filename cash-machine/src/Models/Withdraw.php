@@ -44,17 +44,6 @@ class Withdraw
         return floor($this->amount->subtract($this->getFilledAmount())->divideBy($noteValue));
     }
 
-    public function getNumberOfNotesOfValuePresent($noteValue)
-    {
-        $numberOfNotes = 0;
-        foreach ($this->notes as $note) {
-            if ($note->getValue() == $noteValue) {
-                $numberOfNotes++;
-            }
-        }
-        return $numberOfNotes;
-    }
-
     /**
      * @param Note $note
      */

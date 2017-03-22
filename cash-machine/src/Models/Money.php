@@ -29,20 +29,6 @@ class Money
         $this->amount = $amount;
     }
 
-
-    /**
-     * These stuff could also be in another model, like Number preferably
-     * but I realized it too late and it's a coding test at the end of the day
-     */
-
-    /**
-     * @return bool
-     */
-    public function isNegative()
-    {
-        return $this->amount < 0;
-    }
-
     /**
      * @param Money $amount
      * @return boolean
@@ -68,5 +54,13 @@ class Money
     public function subtract(Money $amount)
     {
         return new Money($this->amount - $amount->amount);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isNegative()
+    {
+        return $this->amount < 0;
     }
 }
