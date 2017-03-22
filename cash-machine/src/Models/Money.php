@@ -53,12 +53,12 @@ class Money
     }
 
     /**
-     * @param Money $amount
+     * @param float $amount
      * @return int
      */
-    public function divideBy(Money $amount)
+    public function divideBy($amount)
     {
-        return ($this->amount / $amount->amount);
+        return ($this->amount / $amount);
     }
 
     /**

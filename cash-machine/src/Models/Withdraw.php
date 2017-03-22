@@ -41,7 +41,7 @@ class Withdraw
      */
     public function getNumberOfNotesOfValueNeeded($noteValue)
     {
-        return floor($this->amount->subtract($this->getFilledAmount())->divideBy(new Money($noteValue)));
+        return floor($this->amount->subtract($this->getFilledAmount())->divideBy($noteValue));
     }
 
     public function getNumberOfNotesOfValuePresent($noteValue)
