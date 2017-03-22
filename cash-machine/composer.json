@@ -1,0 +1,15 @@
+{
+  "name": "test",
+  "autoload": {
+    "psr-4": {
+      "CM\\": "src/",
+      "UnitTests\\": "unittests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "dev-master"
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  }
+}
