@@ -1,0 +1,22 @@
+{
+    "name": "Cash machine",
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "bin-dir": "bin"
+    },
+    "scripts": {
+        "test": "bin/phpunit"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yatikh\\CashMachine\\": ["src/"]
+        }
+    }
+}
