@@ -60,13 +60,13 @@ class Machine
         }
 
         if (!is_numeric($amount) || $amount < 0) {
-            throw new InvalidArgumentException("The machine doesn't have appropriate notes.");
+            throw new InvalidArgumentException("The amount value must be of positive float type.");
         }
 
         $minNote = min($this->availableNotes);
 
         if ($amount % $minNote !== 0) {
-            throw new NoteUnavailableException("The amount must be composable from available notes.");
+            throw new NoteUnavailableException("The machine doesn't have appropriate notes.");
         }
 
         $notes = [];
