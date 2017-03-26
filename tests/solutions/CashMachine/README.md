@@ -1,6 +1,6 @@
 # Implementation of Cash Machine test
 
-Author: Tikhomirov Yaroslav
+Author: Yaroslav Tikhomirov
 
 # Installation
 
