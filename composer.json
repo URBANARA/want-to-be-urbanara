@@ -1,0 +1,29 @@
+{
+    "name": "Senior Software Architect",
+    "license": "",
+    "type": "project",
+    "description": "\"Urbanara\" vacancy.",
+    "autoload": {
+        "psr-4": {
+            "Urbanara\\": "src/urbanara"
+        },
+        "classmap": []
+    },
+    "autoload-dev": {
+        "psr-4": { "Tests\\": "tests/" },
+        "files": []
+    },
+    "require": {
+        "php": ">=7.1.0",
+        "ext-dom": "*",
+        "phpunit/phpunit": "^6.2"
+    },
+    "config": {
+        "platform": {
+            "php": "7.1.0"
+        },
+        "sort-packages": true,
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "stable"
+}
