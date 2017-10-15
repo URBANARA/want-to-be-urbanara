@@ -9,10 +9,11 @@ const withdraw = (amount) => {
   let total = 0;
   let noteIndex = 0;
   while (total < amount) {
-    const noteCount = Math.floor((amount - total) / notes[noteIndex]);
-    total += noteCount * notes[noteIndex];
+    const currentNote = notes[noteIndex];
+    const noteCount = Math.floor((amount - total) / currentNote);
+    total += noteCount * currentNote;
     if (noteCount) {
-      result = result.concat( (new Array(noteCount)).fill(notes[noteIndex]));
+      result = result.concat( (new Array(noteCount)).fill(currentNote));
     }
     noteIndex++;
   }
