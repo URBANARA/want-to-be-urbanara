@@ -1,0 +1,29 @@
+{
+  "name": "want-to-be-urbanara",
+  "version": "1.0.0",
+  "description": "The URBANARA vision is simple: we believe that beautiful, high-quality products should be available to everyone.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/URBANARA/want-to-be-urbanara.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/URBANARA/want-to-be-urbanara/issues"
+  },
+  "homepage": "https://github.com/URBANARA/want-to-be-urbanara#readme",
+  "devDependencies": {
+    "jest": "^21.2.1"
+  },
+  "dependencies": {
+    "prompt": "^1.0.0"
+  }
+}
